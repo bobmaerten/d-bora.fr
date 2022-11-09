@@ -9,6 +9,7 @@ jobs:
   build:
     name: Build and publish
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
     - name: Checkout code
@@ -23,4 +24,5 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
+        secure: false
         local_dir: ./_site/
