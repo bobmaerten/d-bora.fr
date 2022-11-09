@@ -1,0 +1,27 @@
+name: Build and publish website
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build and publish
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Build site
+      uses: actions/jekyll-build-pages@v1
+
+    - name: Push to FTP
+      uses: anvil-solutions/Fast-FTP-Action@56c1ceaf19d2c21b84f2bf65689dcffea4d1c0c2
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        port: ${{ secrets.FTP_PORT }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        local_dir: ./_site/
