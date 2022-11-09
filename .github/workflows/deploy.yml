@@ -18,10 +18,9 @@ jobs:
       uses: actions/jekyll-build-pages@v1
 
     - name: Push to FTP
-      uses: anvil-solutions/Fast-FTP-Action@56c1ceaf19d2c21b84f2bf65689dcffea4d1c0c2
+      uses: dennisameling/ftp-upload-action@v1
       with:
         server: ${{ secrets.FTP_SERVER }}
-        port: ${{ secrets.FTP_PORT }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         local_dir: ./_site/
