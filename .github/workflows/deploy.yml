@@ -19,10 +19,9 @@ jobs:
       uses: actions/jekyll-build-pages@v1
 
     - name: Push to FTP
-      uses: dennisameling/ftp-upload-action@v1
+      uses: SamKirkland/FTP-Deploy-Action@4.3.2
       with:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        secure: false
-        local_dir: ./_site/
+        local-dir: ./_site/
