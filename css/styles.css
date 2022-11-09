@@ -1,0 +1,98 @@
+@charset "UTF-8";
+
+:root {
+  --bs-font-sans-serif: Lato;
+}
+html {
+  scroll-padding-top: 67px;
+}
+body {
+  background-color: black;
+  color: white;
+}
+.container {
+  font-family: Lato;
+}
+.container-fluid h1 {
+  text-align: center;
+}
+.display-4 {
+  font-family: Catamaran;
+}
+
+.btn-xl {
+  text-transform: uppercase;
+  padding: 1.5rem 3rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+}
+
+.navbar-custom {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.navbar-custom .navbar-brand {
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+  font-weight: 700;
+}
+.navbar-custom .navbar-nav .nav-item .nav-link {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+}
+
+header.masthead {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 7rem;
+  padding-top: calc(7rem + 72px);
+  background: url("../assets/img/band.jpg");
+  /* background: url("../assets/img/d-bora_logo.png"); */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: scroll;
+  background-size: cover;
+}
+header.masthead .masthead-content {
+  z-index: 1;
+  position: relative;
+}
+header.masthead .masthead-content .masthead-heading {
+  font-size: 4rem;
+  color: var(--bs-orange);
+  font-family: Lato;
+}
+
+header.masthead .masthead-content .masthead-subheading {
+  font-size: 2rem;
+  color: var(--bs-orange);
+  font-family: Lato;
+}
+
+@media (max-width: 768px) {
+  header.masthead {
+    background: url("../assets/img/band-xs.jpg");
+  }
+}
+@media (min-width: 992px) {
+  header.masthead {
+    padding-top: calc(10rem + 55px);
+    padding-bottom: 10rem;
+  }
+  header.masthead .masthead-content .masthead-heading {
+    font-size: 6rem;
+  }
+  header.masthead .masthead-content .masthead-subheading {
+    font-size: 4rem;
+  }
+}
+
+#members {
+  color: black;
+  background-color: white;
+}
