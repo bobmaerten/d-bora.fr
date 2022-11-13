@@ -2,10 +2,13 @@
   <h2>{{ include.title }}</h2>
   <div class="ratio ratio-16x9">
     <iframe
+      type="text/html"
+      frameborder="0"
+      title="{{ include.title }}"
+      loading="lazy"
       width="560"
       height="315"
-      src="https://www.youtube.com/embed/{{ include.id }}"
-      frameborder="0"
+      src="https://www.youtube-nocookie.com/embed/{{ include.id }}?modestbranding=0&showinfo=0&rel=0&iv_load_policy=3&color=black"
       allowfullscreen
     >
     </iframe>
