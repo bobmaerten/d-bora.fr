@@ -25,6 +25,7 @@ title: D-BORA — les dates
         <span class="d-block text-danger">{{ liveshow.price }}</span>
       {% endif %}
     </dd>
+    <hr />
   {% endfor %}
 </dd>
 
