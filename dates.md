@@ -12,7 +12,7 @@ title: D-BORA — les dates
 
 <dd class="mb-5">
   {% for liveshow in site.data.upcoming_liveshows %}
-    <dt class="text-danger mt-3">
+    <dt class="fs-3 text-danger mt-3">
       {{ liveshow.when | localize: '%d %B %Y', 'fr' }}
     </dt>
     <dd class="border-bottom border-light-subtle pb-3">
