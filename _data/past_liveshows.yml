@@ -1,3 +1,8 @@
+- when: 2023-03-10T21:00:00Z
+  title: Barley's Pub
+  address: 1 rue du Château d'Isenghien - Lomme
+
+
 - when: 2022-12-10
   title: Concert de solidarité du Téléthon
   address: Haulchin
