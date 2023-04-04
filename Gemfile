@@ -1,9 +1,9 @@
-source "https://rubygems.org"
-ruby "3.1.3"
+source 'https://rubygems.org'
+ruby '3.2.2'
 
-gem "jekyll", "~> 4.2.2"
-gem "minima", "~> 2.5"
-gem "webrick"
+gem 'jekyll', '~> 4.2.2'
+gem 'minima', '~> 2.5'
+gem 'webrick'
 
 group :jekyll_plugins do
   # gem "jekyll-feed", "~> 0.15.1"
