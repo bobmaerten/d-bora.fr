@@ -12,6 +12,6 @@ Heureusement, l’école de musique de Valenciennes organise des sessions d’ap
 
 C’est là que l’occasion se présente. Le batteur historique de D-BORA souhaite naviguer vers d’autres contrées musicales.
 Mathieu, alors bassiste de D-BORA, décide de reprendre les baguettes et propose à Bob de le remplacer et de faire un essai avec le groupe.
-Ils se connaissent depuis quasi 2 ans via les réseaux sociaux de bassistes débutants (alors qu’il habite a moins de 10mn l’un de l’autre).
+Ils se connaissent depuis quasi 2 ans via les réseaux sociaux de bassistes débutants (alors qu’ils habitent à moins de 10mn l’un de l’autre).
 
 L’alchimie prend assez rapidement, et après quelques sessions d’essais, le groupe est à nouveau complet avec un tout nouveau couple basse/batt depuis juillet 2022.
