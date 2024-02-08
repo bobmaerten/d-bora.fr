@@ -30,7 +30,9 @@ url: https://d-bora.fr # the base hostname & protocol for your site, e.g. http:/
 
 # Build settings
 # theme: minima
-plugins: [jekyll-date-localization]
+plugins:
+  - jekyll-sitemap
+  - jekyll-date-localization
   # - jekyll-feed
 date_locale: fr
 # Exclude from processing.
