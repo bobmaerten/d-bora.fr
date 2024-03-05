@@ -26,7 +26,7 @@ last_modified_at: 2024-02-08
       {% endif %}
       <span class="d-block fw-bold text-info">{{ liveshow.when | date: '%H h %M' }}</span>
       {% if liveshow.price %}
-        <span class="d-block text-danger">{{ liveshow.price }}</span>
+        <span class="d-block text-success">{{ liveshow.price }}</span>
       {% endif %}
     </dd>
   {% endfor %}
@@ -34,7 +34,7 @@ last_modified_at: 2024-02-08
 
 <dd class="mt-5">
   {% for liveshow in site.data.past_liveshows %}
-    <dt class="text-danger mt-3">{{ liveshow.when | localize: '%d %B %Y', 'fr' }}</dt>
+    <dt class="text-warning mt-3">{{ liveshow.when | localize: '%d %B %Y', 'fr' }}</dt>
     <dd>
       <span class="fs-4">{{ liveshow.title }}</span>
       {% if liveshow.subtitle %}
@@ -42,9 +42,6 @@ last_modified_at: 2024-02-08
       {% endif %}
       {% if liveshow.address %}
         <span class="d-block text-secondary">{{ liveshow.address }}</span>
-      {% endif %}
-      {% if liveshow.price %}
-        <span class="d-block text-danger">{{ liveshow.price }}</span>
       {% endif %}
     </dd>
   {% endfor %}
