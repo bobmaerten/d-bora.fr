@@ -1,15 +1,12 @@
 - when: 2024-07-05T19:00:00Z
-  title: Concert
+  title: Festival Mini Wood
   address: Wattignies-la-victoire
 - when: 2024-06-21T17:00:00Z
   title: Fête de la musique
   address: chez Jules et Madeleine à Valenciennes
+- when: 2024-06-15T12:00:00Z
+  title: Camping La Garenne
+  address: Bray-Dunes
 - when: 2024-05-24T20:00:00Z
   title: Brasserie Vivat
   address: Le Cateau
-# - when: 2024-05-01T12:00:00Z
-#   title: Camping La Garenne
-#   address: Bray-Dunes
-- when: 2024-04-13T19:00:00Z
-  title: Festival Mainsq'ERRE
-  address: Salle des fêtes de Erre
