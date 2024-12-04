@@ -1,12 +1,14 @@
-source 'https://rubygems.org'
-ruby '3.2.5'
+# frozen_string_literal: true
 
-gem 'jekyll', '~> 4.2.2'
-gem 'minima', '~> 2.5'
+source 'https://rubygems.org'
+ruby '3.3.6'
+
+gem 'jekyll'
+gem 'minima'
 gem 'webrick'
 
 group :jekyll_plugins do
   # gem "jekyll-feed", "~> 0.15.1"
-  gem 'jekyll-sitemap', '~> 1.4'
   gem 'jekyll-date-localization'
+  gem 'jekyll-sitemap'
 end
