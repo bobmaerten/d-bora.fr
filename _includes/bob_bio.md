@@ -1,5 +1,3 @@
-### Robert (alias Bob)
-
 Toujours attiré par la musique et la rythmique mais n’ayant jamais eu l’opportunité de se lancer, c’est à l’aube de ses 45 ans (en janvier 2019) qu’il se jette à l’eau.
 Au détour d’un CashTroc, il achète une basse sur un coup de tête, et c’est le coup de foudre.
 

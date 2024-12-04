@@ -6,8 +6,8 @@ last_modified_at: 2024-12-04
 
 <section id="members">
     <div class="accordion accordion-flush" id="accordionBio">
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 text-center">
-            <div class="col py-5">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-5 text-center">
+            <div class="col">
                 <img
                     class="rounded-circle"
                     src="assets/img/jp.jpg"
@@ -47,7 +47,7 @@ last_modified_at: 2024-12-04
                     </div>
                 </div>
               </div>
-            <div class="col py-5">
+            <div class="col">
                 <img
                     class="rounded-circle"
                     src="assets/img/fred.jpg"
@@ -87,7 +87,7 @@ last_modified_at: 2024-12-04
                     </div>
                 </div>
               </div>
-            <div class="col py-5">
+            <div class="col">
                 <img
                     class="rounded-circle"
                     src="assets/img/math.jpg"
@@ -139,7 +139,7 @@ last_modified_at: 2024-12-04
                     </div>
                 </div>
               </div>
-            <div class="col py-5">
+            <div class="col">
                 <img
                     class="rounded-circle"
                     src="assets/img/bob.jpg"
@@ -181,17 +181,15 @@ last_modified_at: 2024-12-04
                  </div>
             </div>
         </div>
-        <div class="col-12 col-md-3 offset-md-5 py-5 text-center">
-            <img
-                class="rounded-circle"
-                src="assets/img/deborah.jpg"
-                width="250"
-                height="250"
-                alt="Déborah"
-            />
-            <div class="mt-3">
-                <h2 class="display-4">Déborah</h2>
-            </div>
-        </div>
+    </div>
+    <div class="py-5 text-center">
+        <img
+            class="rounded-circle"
+            src="assets/img/deborah.jpg"
+            width="250"
+            height="250"
+            alt="Déborah"
+        />
+        <h2 class="display-4 fst-italic">Déborah</h2>
     </div>
 </section>
