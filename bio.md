@@ -16,7 +16,7 @@ last_modified_at: 2024-12-04
                     alt="Jean-Pierre"
                 />
                 <div class="mt-3">
-                    <p class="text-center">Guitare rythmique et chant</p>
+                    <p class="text-center">Chant, guitare rythmique, harmonica</p>
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingJP">
                             <button
@@ -96,7 +96,7 @@ last_modified_at: 2024-12-04
                     alt="Mathieu"
                 />
                 <div class="mt-3">
-                    <p class="text-center">Batterie</p>
+                    <p class="text-center">Batterie et chœurs</p>
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingMath">
                             <button
