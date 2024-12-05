@@ -126,17 +126,6 @@ last_modified_at: 2024-12-04
                             }}
                         </div>
                     </div>
-                    <div
-                        id="collapseMath"
-                        class="accordion-collapse collapse"
-                        aria-labelledby="headingMath"
-                        data-bs-parent="#accordionBio"
-                    >
-                        <div class="accordion-body">
-                            {% capture my_include %}{% include math_bio.md %}{%
-                            endcapture %} {{ my_include | markdownify }}
-                        </div>
-                    </div>
                 </div>
               </div>
             <div class="col">
