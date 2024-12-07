@@ -4,13 +4,10 @@ title: D-BORA — les dates
 last_modified_at: 2024-02-08
 ---
 
-# Nos dates de concerts
-
 <div class="row">
 <div class="col-12 col-md-6 offset-md-3" markdown="1">
 
 <div class="text-center" markdown="1">
-
 <dd class="mb-5">
   {% for liveshow in site.data.upcoming_liveshows %}
     <dt class="fs-3 text-danger mt-3">
