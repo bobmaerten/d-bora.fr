@@ -7,7 +7,7 @@
     <meta name="description" content="Un groupe de rock de compositions originales dont les thèmes principaux sont la vie et l'amour." />
     <meta name="keywords" content="rock,groupe rock,D-BORA,musique,musique rock,rock français,hauts de france,guitar,guitarist,guitarists,guitar player,bass,basse,bass player,drums,drum player,vocal,vocals,vocalist,lavie,vie,life,love,amour,l'amour" />
     <title>{{ page.title }}</title>
-    <link rel="canonical" href="{{ site.url }}{{ page.url | replace:'index.html',''}}">
+    <link rel="canonical" href="{% if page.url =='/' %}{{site.url}}{% else %}{{page.url | absolute_url}}{% endif %}">
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
