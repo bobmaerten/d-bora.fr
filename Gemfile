@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-ruby '3.3.6'
+ruby '3.4.1'
 
+gem 'base64'
+gem 'csv'
 gem 'jekyll'
 gem 'minima'
 gem 'webrick'
