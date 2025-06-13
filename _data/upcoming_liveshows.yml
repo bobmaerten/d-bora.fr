@@ -1,0 +1,12 @@
+- when: 2025-06-21T20:30:00Z
+  title: Fête de la musique
+  address: Escaupont
+
+- when: 2025-07-13T20:30:00Z
+  title: Programmes de la Fête Nationale
+  address: Mortagne-du-Nord
+
+- when: 2025-11-22T20:30:00Z
+  title: Green Break
+  address: Wambrechies
+  price: 5
