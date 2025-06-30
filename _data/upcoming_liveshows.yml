@@ -1,10 +1,10 @@
-- when: 2025-06-21T20:30:00Z
-  title: Fête de la musique
-  address: Escaupont
-
-- when: 2025-07-13T20:30:00Z
-  title: Programmes de la Fête Nationale
+- when: 2025-07-13T22:00:00Z
+  title: Festivités du 13 et 14 juillet
   address: Mortagne-du-Nord
+
+- when: 2025-08-30T20:30:00Z
+  title: Fête de la musique reportée
+  address: Escaupont
 
 - when: 2025-11-22T20:30:00Z
   title: Green Break
