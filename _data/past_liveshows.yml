@@ -1,3 +1,11 @@
+- when: 2025-08-30T20:30:00Z
+  title: Fête de la musique reportée
+  address: Escaupont
+
+- when: 2025-07-13T22:00:00Z
+  title: Festivités du 13 et 14 juillet
+  address: Mortagne-du-Nord
+
 - when: 2024-07-27T22:00:00Z
   title: Brasserie Vivat
   address: Le Cateau-Cambrésis
