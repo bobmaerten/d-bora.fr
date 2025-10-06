@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 ruby '3.4.6'
 
 gem 'base64'
+gem 'logger'
+gem 'json'
 gem 'csv'
 gem 'jekyll'
 gem 'minima'
@@ -14,5 +16,3 @@ group :jekyll_plugins do
   gem 'jekyll-date-localization'
   gem 'jekyll-sitemap'
 end
-
-gem "logger", "~> 1.7"
