@@ -14,3 +14,5 @@ group :jekyll_plugins do
   gem 'jekyll-date-localization'
   gem 'jekyll-sitemap'
 end
+
+gem "logger", "~> 1.7"
