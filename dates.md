@@ -22,8 +22,11 @@ last_modified_at: 2024-02-08
         <span class="d-block text-secondary">{{ liveshow.address }}</span>
       {% endif %}
       <span class="d-block fw-bold text-info">{{ liveshow.when | date: '%H h %M' }}</span>
+      {% if liveshow.tickets %}
+        <span class="d-block"><a href="{{ liveshow.tickets }}">Billets</a></span>
+      {% endif %}
       {% if liveshow.price %}
-        <span class="d-block text-success">PAF: {{ liveshow.price }} €</span>
+        <span class="d-block text-success">PAF : {{ liveshow.price }} €</span>
       {% endif %}
     </dd>
   {% endfor %}
