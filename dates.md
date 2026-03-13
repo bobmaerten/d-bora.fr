@@ -8,7 +8,7 @@ last_modified_at: 2024-02-08
 <div class="col-12 col-md-6 offset-md-3" markdown="1">
 
 <div class="text-center" markdown="1">
-<dd class="mb-5">
+<dl class="mb-5">
   {% for liveshow in site.data.upcoming_liveshows %}
     <dt class="fs-3 text-danger mt-3">
       {{ liveshow.when | localize: '%d %B %Y', 'fr' }}
@@ -30,9 +30,9 @@ last_modified_at: 2024-02-08
       {% endif %}
     </dd>
   {% endfor %}
-</dd>
+</dl>
 
-<dd class="mt-5">
+<dl class="mt-5">
   {% for liveshow in site.data.past_liveshows %}
     <dt class="text-warning mt-3">{{ liveshow.when | localize: '%d %B %Y', 'fr' }}</dt>
     <dd>
@@ -45,7 +45,7 @@ last_modified_at: 2024-02-08
       {% endif %}
     </dd>
   {% endfor %}
-</dd>
+</dl>
 
 </div>
 </div>
