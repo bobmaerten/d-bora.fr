@@ -17,7 +17,7 @@ last_modified_at: 2026-03-13
             {% assign songs = site.data.chansons | where: "theme", theme %}
             {% for chanson in songs %}
             <li class="chanson-item py-3 border-bottom border-dark-subtle">
-                <span class="fs-4" style="font-family: var(--font-display); letter-spacing: 0.03em;">{{ chanson.title }}</span>
+                <span class="fs-4 chanson-title">{{ chanson.title }}</span>
                 <p class="text-muted-warm mb-0 mt-1">{{ chanson.pitch }}</p>
             </li>
             {% endfor %}

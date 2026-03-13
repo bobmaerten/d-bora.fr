@@ -30,7 +30,7 @@ Code should speak for itself. Don't comment _what_ — comment _why_.
 
 - **Ruby**: 3.4.9+ (managed by [mise](https://mise.jdx.dev/) via `mise.toml`)
 - **Jekyll**: 4.4+ (static site generator)
-- **Frontend**: Bootstrap 5.3.8+ (CDN) / Google Fonts (Catamaran, Lato)
+- **Frontend**: Bootstrap 5.3.8+ (CDN) / Google Fonts (Bebas Neue, Source Sans 3, Libre Baskerville)
 - **Plugins**: jekyll-sitemap, jekyll-date-localization
 - **Hosting**: [Render.com](https://render.com) (static site, build: `bundle exec jekyll build`, publish: `_site`)
 
@@ -42,8 +42,7 @@ _includes/       # Reusable fragments (bios, embeds)
 _data/           # Structured content (YAML, CSV)
 assets/img/      # Images (band photos, logos, SVGs)
 assets/file/     # Downloads (PDFs, ZIPs)
-css/styles.css   # Custom styles (Bootstrap overrides)
-js/scripts.js    # Custom JavaScript
+css/styles.css   # Custom styles (design tokens, Bootstrap overrides)
 ```
 
 ## Critical Rules
@@ -77,7 +76,7 @@ Content is managed via data files in `_data/`. Follow the existing formats exact
 
 ```csv
 title,id
-Rebelle,253A1942665195
+Rebelle,1942665195
 ```
 
 ### YouTube videos (`_data/videos.csv`)
@@ -92,8 +91,8 @@ Et si Dieu... (oct.24),JJ6Oa-SmPWs
 - **Bootstrap utilities in HTML first** — only write custom CSS when utilities cannot achieve the design
 - **Flat selectors** — avoid deep nesting
 - **Semantic naming** — `.btn-xl` not `.big-orange-button`
-- Theme: black background, white text, orange (`var(--bs-orange)`) accents
-- Fonts: Catamaran (headings), Lato (body)
+- Design tokens in `:root` — use `var(--color-accent)`, `var(--color-gold)`, `var(--color-text)`, etc.
+- Fonts: Bebas Neue (display/headings), Source Sans 3 (body), Libre Baskerville (serif accents)
 - Responsive images: `band.jpg` (desktop), `band-xs.jpg` (mobile ≤768px)
 
 ## Accessibility
