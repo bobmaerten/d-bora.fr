@@ -251,29 +251,21 @@ header.masthead .masthead-subheading {
     text-transform: uppercase;
 }
 
-/* Accordion dark theme */
-.accordion-item {
-    background-color: transparent;
-    border: none;
-}
-.accordion-button {
-    background-color: transparent;
-    color: var(--color-text);
-    box-shadow: none !important;
-    border-bottom: 1px solid rgba(232, 114, 42, 0.15);
-}
-.accordion-button:not(.collapsed) {
-    background-color: transparent;
-    color: var(--color-accent);
-}
-.accordion-button::after {
-    filter: invert(1);
-}
-.accordion-body {
+/* Bio cards */
+.bio-card {
     background-color: var(--color-bg-card);
-    color: var(--color-text);
-    border-radius: 0 0 0.5rem 0.5rem;
+    border: 1px solid rgba(232, 114, 42, 0.08);
+    border-radius: 0.75rem;
+    padding: 2rem 1.5rem;
+}
+.bio-text {
     line-height: 1.8;
+    color: var(--color-text);
+    opacity: 0.85;
+    margin-top: 1rem;
+}
+.bio-text p:last-child {
+    margin-bottom: 0;
 }
 
 /* Déborah tribute */
@@ -391,6 +383,15 @@ header.masthead .masthead-subheading {
 .site-footer .copyright {
     color: var(--color-text-muted);
     font-size: 0.8rem;
+}
+
+/* ─── Setlist ─── */
+.chanson-item {
+    border-color: rgba(232, 114, 42, 0.1) !important;
+    transition: background-color 0.2s ease;
+}
+.chanson-item:hover {
+    background-color: rgba(232, 114, 42, 0.03);
 }
 
 /* ─── Utilities ─── */

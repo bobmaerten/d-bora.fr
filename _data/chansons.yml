@@ -1,0 +1,87 @@
+# ─── La vie ───
+- title: Avoir 20 ans
+  theme: La vie
+  pitch: "Du haut de la cinquantaine, un regard tendre et lucide sur la jeunesse envolée. Entre humour et mélancolie."
+
+- title: Chevrolet Bel Air
+  theme: La vie
+  pitch: "Le quotidien qui étouffe, l'info qui déprime, et cette obsession : prendre la route sans retour dans une américaine mythique."
+
+- title: Je pleure
+  theme: La vie
+  pitch: "Assumer ses émotions quand on est un mec. En finir avec l'injonction de la virilité impassible."
+
+- title: La vie est belle
+  theme: La vie
+  pitch: "Un pied de nez au pessimisme ambiant. Choisir de voir le beau malgré le chaos, et s'accrocher à ce qui rend chaque journée précieuse."
+
+- title: Mais qu'est-ce qu'on veut ?
+  theme: La vie
+  pitch: "Une interrogation sur ce qu'on cherche vraiment dans la vie."
+
+- title: Petit Homme
+  theme: La vie
+  pitch: "La transmission, la filiation. Ce qu'on laisse de soi à travers ceux qui nous prolongent."
+
+# ─── Amour ───
+- title: Deborah
+  theme: Amour
+  pitch: "La chanson qui a donné son nom au groupe. Un hommage à notre bassiste disparue trop tôt dans un accident de la route."
+
+- title: Jamais trop tard
+  theme: Amour
+  pitch: "Des sentiments gardés trop longtemps. Une déclaration tendre à celle avec qui on vieillit, tant qu'il est encore temps."
+
+- title: Juste une fois
+  theme: Amour
+  pitch: "La supplique d'un homme en manque de tendresse. Un seul geste, un seul murmure suffiraient à tout réparer."
+
+- title: Les p'tits secrets
+  theme: Amour
+  pitch: "Un regard croisé dans la rue avec une inconnue. Rien de plus, mais ce frisson fugace qui rappelle qu'on est bien vivant."
+
+- title: Marchands d'soleil
+  theme: Amour
+  pitch: "La mise en garde d'un père à sa fille. Derrière les sourires et les belles promesses se cachent parfois des prédateurs."
+
+# ─── Liberté ───
+- title: Écoute-toi
+  theme: Liberté
+  pitch: "L'amour brisé par l'entourage, la douleur de l'absence, et pourtant cet appel : reste toi-même."
+
+- title: Interdire d'interdire
+  theme: Liberté
+  pitch: "Face aux censeurs, aux lâches et aux fanatiques, un hymne rageur à la liberté d'expression qu'on maltraite partout dans le monde."
+
+- title: La vie en a décidé autrement
+  theme: Liberté
+  pitch: "La guitare rangée, le crayon posé, la moto troquée contre une bagnole. Tous ces rêves sacrifiés pour rentrer dans le moule."
+
+- title: Rebelle
+  theme: Liberté
+  pitch: "Choisir sa route plutôt que celle qu'on vous trace. Payer le prix fort pour sa liberté, et ne rien regretter."
+
+# ─── Société ───
+- title: Apprentis sorciers
+  theme: Société
+  pitch: "Nos dirigeants qui paradent à la télé pendant que le monde tremble. Le vertige d'un citoyen ordinaire face à la folie des puissants."
+
+- title: Et si Dieu c'était toi
+  theme: Société
+  pitch: "Arrêter de chercher des réponses dans le ciel. Le bien et le mal, c'est ici, c'est nous, c'est maintenant."
+
+- title: Homo Sapiens
+  theme: Société
+  pitch: "Du singe curieux au génie atomique, l'itinéraire absurde d'une espèce qui se croit supérieure — et qui ferait bien de prendre exemple sur son meilleur ami."
+
+- title: Le grand voyage
+  theme: Société
+  pitch: "Un voisin sympa, des échanges banals chaque matin. Puis un jour, la nouvelle tombe. Personne n'avait rien vu venir."
+
+- title: Les mots
+  theme: Société
+  pitch: "Du dictionnaire aux réseaux sociaux, du poème à l'insulte. Ce qui construit, ce qui détruit, et tout ce qu'on devrait dire avant qu'il ne soit trop tard."
+
+- title: Un homme seul
+  theme: Société
+  pitch: "Accoudé au comptoir du matin au soir, un type raconte sa dégringolade. Tout a foutu le camp, mais ce soir il se promet d'arrêter."

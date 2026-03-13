@@ -1,0 +1,27 @@
+---
+layout: page
+title: D-BORA — setlist
+last_modified_at: 2026-03-13
+---
+
+<h1>Setlist</h1>
+
+<p class="text-center text-muted-warm fs-5 mb-5">{{ site.data.chansons.size }} compositions originales</p>
+
+<div class="row">
+    <div class="col-12 col-md-10 col-lg-8 mx-auto">
+        {% assign themes = site.data.chansons | map: "theme" | uniq %}
+        {% for theme in themes %}
+        <h2 class="text-gold mt-5 mb-3">{{ theme }}</h2>
+        <ul class="list-unstyled mb-4">
+            {% assign songs = site.data.chansons | where: "theme", theme %}
+            {% for chanson in songs %}
+            <li class="chanson-item py-3 border-bottom border-dark-subtle">
+                <span class="fs-4" style="font-family: var(--font-display); letter-spacing: 0.03em;">{{ chanson.title }}</span>
+                <p class="text-muted-warm mb-0 mt-1">{{ chanson.pitch }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+        {% endfor %}
+    </div>
+</div>
