@@ -9,14 +9,14 @@
     <title>{{ page.title }}</title>
     <link rel="canonical" href="{% if page.url =='/' %}{{site.url}}{% else %}{{page.url | absolute_url}}{% endif %}">
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;700&family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <link href="css/styles.css" rel="stylesheet" />
   </head>
   <body>
     <div id="page-top">
       <nav class="navbar navbar-expand-lg navbar-custom fixed-top" data-bs-theme="dark">
-        <div class="container px-5">
+        <div class="container px-4">
           <a class="navbar-brand" href="index.html#page-top">
             <img src="assets/img/logo@1x.png" srcset="assets/img/logo@2x.png 2x" width="159" height="60" alt="D-BORA" />
           </a>
@@ -24,7 +24,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ms-auto">
+            <ul class="navbar-nav ms-auto gap-lg-1">
               <li class="nav-item"><a class="nav-link" href="bio.html">Le groupe</a></li>
               <li class="nav-item"><a class="nav-link" href="dates.html">Dates</a></li>
               <li class="nav-item"><a class="nav-link" href="infos.html">Infos</a></li>
@@ -39,9 +39,25 @@
       {% else %}
         {{ content }}
       {% endif %}
-      <footer class="py-5 bg-black">
-        <div class="container px-5">
-          <p class="m-0 text-center text-white small">Copyright &copy; D-BORA 2026</p>
+      <footer class="site-footer py-5 mt-5">
+        <div class="container px-4">
+          <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-4">
+            <a href="index.html" class="footer-logo">
+              <img src="assets/img/logo@1x.png" srcset="assets/img/logo@2x.png 2x" width="120" height="45" alt="D-BORA" />
+            </a>
+            <div class="d-flex gap-4">
+              <a href="https://www.facebook.com/Dbora.groupe.rock" aria-label="Facebook">
+                <img src="assets/img/facebook.svg" width="20" height="20" alt="" />
+              </a>
+              <a href="https://www.youtube.com/channel/UCJvpRzqMZlLowPCS42uATdw" aria-label="YouTube">
+                <img src="assets/img/youtube.svg" width="20" height="20" alt="" />
+              </a>
+              <a href="https://soundcloud.com/d-bora-groupe-rock" aria-label="SoundCloud">
+                <img src="assets/img/soundcloud.svg" width="20" height="20" alt="" />
+              </a>
+            </div>
+            <p class="copyright m-0">Copyright &copy; D-BORA 2026</p>
+          </div>
         </div>
       </footer>
     </div>

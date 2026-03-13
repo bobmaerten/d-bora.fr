@@ -1,69 +1,161 @@
 @charset "UTF-8";
 
+/* ─── Design tokens ─── */
 :root {
-    --bs-font-sans-serif: Lato;
+    --color-bg: #0a0a0a;
+    --color-bg-alt: #111111;
+    --color-bg-card: #161616;
+    --color-text: #f0ece2;
+    --color-text-muted: #8a8578;
+    --color-accent: #e8722a;
+    --color-accent-hover: #f4883f;
+    --color-gold: #c4a35a;
+    --bs-font-sans-serif: "Source Sans 3", sans-serif;
+    --font-display: "Bebas Neue", sans-serif;
 }
+
+/* ─── Global ─── */
 html {
-    scroll-padding-top: 67px;
+    scroll-padding-top: 72px;
+    scroll-behavior: smooth;
 }
 body {
-    background-color: black;
-    color: white;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+
+/* Subtle grain overlay */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+}
+
+/* ─── Typography ─── */
+h1, h2, h3, .display-4 {
+    font-family: var(--font-display);
+    letter-spacing: 0.05em;
+    color: var(--color-text);
 }
 .container-fluid h1 {
     text-align: center;
+    font-size: 2.5rem;
+    color: var(--color-accent);
 }
-.display-4 {
-    font-family: Catamaran;
+a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+a:hover {
+    color: var(--color-accent-hover);
 }
 
-.btn-xl {
-    text-transform: uppercase;
-    padding: 1.5rem 3rem;
-    font-size: 0.9rem;
-    font-weight: 700;
-    letter-spacing: 0.1rem;
-}
-
+/* ─── Navbar ─── */
 .navbar-custom {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    background-color: rgba(0, 0, 0, 0.7);
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    background-color: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(232, 114, 42, 0.1);
+    transition: background-color 0.3s ease;
 }
 .navbar-custom .navbar-brand {
     text-transform: uppercase;
-    font-size: 1rem;
-    letter-spacing: 0.1rem;
-    font-weight: 700;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    letter-spacing: 0.15em;
 }
 .navbar-custom .nav-link {
     text-transform: uppercase;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.1rem;
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    color: var(--color-text) !important;
+    position: relative;
+    padding-bottom: 0.4rem;
+    transition: color 0.2s ease;
+}
+.navbar-custom .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent);
+    transition: width 0.3s ease, left 0.3s ease;
+}
+.navbar-custom .nav-link:hover {
+    color: var(--color-accent) !important;
+}
+.navbar-custom .nav-link:hover::after {
+    width: 100%;
+    left: 0;
 }
 
+/* ─── Hero / Masthead ─── */
 header.masthead {
     position: relative;
     overflow: hidden;
-    padding-bottom: 7rem;
-    padding-top: calc(7rem + 72px);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-image: url("../assets/img/band.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
+}
+header.masthead::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(10, 10, 10, 0.5) 0%,
+        rgba(10, 10, 10, 0.3) 40%,
+        rgba(10, 10, 10, 0.7) 80%,
+        rgba(10, 10, 10, 1) 100%
+    );
+    z-index: 0;
 }
 header.masthead .masthead-content {
     z-index: 1;
     position: relative;
 }
 header.masthead .masthead-heading {
-    font-size: 4rem;
-    color: var(--bs-orange);
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 7rem);
+    color: var(--color-text);
+    letter-spacing: 0.08em;
+    line-height: 1;
+    animation: fadeSlideUp 0.8s ease-out both;
 }
 header.masthead .masthead-subheading {
-    font-size: 2rem;
-    color: var(--bs-orange);
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 4vw, 3.5rem);
+    color: var(--color-accent);
+    letter-spacing: 0.06em;
+    animation: fadeSlideUp 0.8s 0.2s ease-out both;
+}
+
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @media (max-width: 768px) {
@@ -71,15 +163,243 @@ header.masthead .masthead-subheading {
         background-image: url("../assets/img/band-xs.jpg");
     }
 }
-@media (min-width: 992px) {
-    header.masthead {
-        padding-top: calc(10rem + 55px);
-        padding-bottom: 10rem;
-    }
-    header.masthead .masthead-heading {
-        font-size: 6rem;
-    }
-    header.masthead .masthead-subheading {
-        font-size: 4rem;
-    }
+
+/* ─── CTA Button ─── */
+.btn-xl {
+    text-transform: uppercase;
+    padding: 1.2rem 3rem;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    border: 2px solid var(--color-accent);
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+    transition: all 0.3s ease;
+    animation: fadeSlideUp 0.8s 0.4s ease-out both;
+}
+.btn-xl:hover {
+    background-color: transparent;
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(232, 114, 42, 0.3);
+}
+.btn-xl:active {
+    transform: translateY(0);
+}
+
+/* ─── Sections ─── */
+.section-alt {
+    background-color: var(--color-bg-alt);
+}
+.section-separator {
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--color-accent) 20%,
+        var(--color-gold) 50%,
+        var(--color-accent) 80%,
+        transparent
+    );
+    opacity: 0.3;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ─── Intro (homepage) ─── */
+.intro-section {
+    max-width: 720px;
+    margin: 0 auto;
+}
+.intro-section .logo-ring {
+    border: 2px solid rgba(232, 114, 42, 0.2);
+    box-shadow: 0 0 40px rgba(232, 114, 42, 0.08);
+    transition: box-shadow 0.4s ease;
+}
+.intro-section .logo-ring:hover {
+    box-shadow: 0 0 60px rgba(232, 114, 42, 0.15);
+}
+.intro-section p {
+    line-height: 1.8;
+    color: var(--color-text);
+}
+.intro-section a {
+    border-bottom: 1px solid var(--color-accent);
+    padding-bottom: 1px;
+}
+.intro-section a:hover {
+    border-bottom-color: var(--color-accent-hover);
+}
+
+/* ─── Member cards (bios) ─── */
+.member-photo {
+    border: 3px solid rgba(232, 114, 42, 0.15);
+    transition: all 0.4s ease;
+}
+.member-photo:hover {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 30px rgba(232, 114, 42, 0.2);
+    transform: scale(1.03);
+}
+.member-role {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    color: var(--color-gold);
+    text-transform: uppercase;
+}
+
+/* Accordion dark theme */
+.accordion-item {
+    background-color: transparent;
+    border: none;
+}
+.accordion-button {
+    background-color: transparent;
+    color: var(--color-text);
+    box-shadow: none !important;
+    border-bottom: 1px solid rgba(232, 114, 42, 0.15);
+}
+.accordion-button:not(.collapsed) {
+    background-color: transparent;
+    color: var(--color-accent);
+}
+.accordion-button::after {
+    filter: invert(1);
+}
+.accordion-body {
+    background-color: var(--color-bg-card);
+    color: var(--color-text);
+    border-radius: 0 0 0.5rem 0.5rem;
+    line-height: 1.8;
+}
+
+/* Déborah tribute */
+.tribute {
+    position: relative;
+    padding: 3rem 0;
+}
+.tribute::before {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 1px;
+    background-color: var(--color-gold);
+    margin: 0 auto 2rem;
+    opacity: 0.5;
+}
+.tribute h2 {
+    color: var(--color-gold);
+}
+
+/* ─── Dates ─── */
+.date-upcoming dt {
+    color: var(--color-accent);
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    letter-spacing: 0.05em;
+}
+.date-upcoming dd {
+    border-bottom: 1px solid rgba(232, 114, 42, 0.1);
+    padding-bottom: 1rem;
+}
+.date-past dt {
+    color: var(--color-gold);
+    font-family: var(--font-display);
+    letter-spacing: 0.04em;
+    opacity: 0.8;
+}
+.date-past dd {
+    opacity: 0.7;
+}
+
+/* ─── Download cards (infos) ─── */
+.download-card {
+    background-color: var(--color-bg-card);
+    border: 1px solid rgba(232, 114, 42, 0.08);
+    border-radius: 0.75rem;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+.download-card:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(232, 114, 42, 0.1);
+}
+.download-card img {
+    opacity: 0.6;
+    filter: invert(1);
+    transition: all 0.3s ease;
+}
+.download-card:hover img {
+    opacity: 0.9;
+}
+
+/* ─── Contact ─── */
+.contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid rgba(232, 114, 42, 0.15);
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    color: var(--color-text);
+    text-decoration: none;
+}
+.contact-link:hover {
+    border-color: var(--color-accent);
+    background-color: rgba(232, 114, 42, 0.05);
+    color: var(--color-accent);
+}
+.contact-link img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) saturate(100%) invert(50%) sepia(80%) saturate(500%) hue-rotate(350deg);
+    transition: filter 0.3s ease;
+}
+.contact-link:hover img {
+    filter: brightness(0) saturate(100%) invert(55%) sepia(90%) saturate(600%) hue-rotate(350deg);
+}
+
+/* ─── Media page ─── */
+.media-section h2 {
+    font-size: 1.2rem;
+    color: var(--color-gold);
+}
+
+/* ─── Footer ─── */
+.site-footer {
+    background-color: var(--color-bg);
+    border-top: 1px solid rgba(232, 114, 42, 0.1);
+}
+.site-footer .footer-logo {
+    opacity: 0.4;
+    transition: opacity 0.3s ease;
+}
+.site-footer .footer-logo:hover {
+    opacity: 0.7;
+}
+.site-footer a {
+    color: var(--color-text-muted);
+}
+.site-footer a:hover {
+    color: var(--color-accent);
+}
+.site-footer .copyright {
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+}
+
+/* ─── Utilities ─── */
+.text-accent {
+    color: var(--color-accent);
+}
+.text-gold {
+    color: var(--color-gold);
+}
+.text-muted-warm {
+    color: var(--color-text-muted);
 }

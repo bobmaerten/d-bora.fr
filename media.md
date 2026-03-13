@@ -6,7 +6,7 @@ last_modified_at: 2024-11-29
 
 # Media
 
-<div class="row row-cols-1 row-cols-md-2 g-4">
+<div class="media-section row row-cols-1 row-cols-md-2 g-4">
   {% for sound in site.data.soundclouds %}
     <div class="col">
       {% include soundcloud_embed.html id=sound.id title=sound.title %}
@@ -14,7 +14,9 @@ last_modified_at: 2024-11-29
   {% endfor %}
 </div>
 
-<div class="row row-cols-1 row-cols-md-2 g-4">
+<div class="section-separator my-5"></div>
+
+<div class="media-section row row-cols-1 row-cols-md-2 g-4">
   {% for video in site.data.videos %}
     <div class="col">
       {% include youtube_embed.html id=video.id title=video.title %}
