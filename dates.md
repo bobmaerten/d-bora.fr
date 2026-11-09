@@ -1,54 +1,45 @@
 ---
 layout: page
 title: D-BORA — les dates
-last_modified_at: 2024-02-08
+last_modified_at: 2026-11-09
+photos:
+  - name: jp-bob-scene
+    alt: JP et Bob sur scène
+  - name: jp-bob-harmonica
+    alt: JP à l'harmonica, Bob à la basse, en plein air
+  - name: fred-bar
+    alt: Fred à la guitare dans un bar
+  - name: jp-bar
+    alt: JP au chant et à la guitare dans un bar
 ---
 
-<div class="row">
-<div class="col-12 col-md-8 col-lg-6 mx-auto" markdown="1">
+<h1>Dates</h1>
 
-<div class="text-center" markdown="1">
-<dl class="date-upcoming mb-5">
-  {% for liveshow in site.data.upcoming_liveshows %}
-    <dt class="mt-4">
-      {{ liveshow.when | localize: '%d %B %Y', 'fr' }}
-    </dt>
-    <dd>
-      <span class="fs-4">{{ liveshow.title }}</span>
-      {% if liveshow.subtitle %}
-        <span class="d-block fst-italic">{{ liveshow.subtitle }}</span>
-      {% endif %}
-      {% if liveshow.address %}
-        <span class="d-block text-muted-warm">{{ liveshow.address }}</span>
-      {% endif %}
-      <span class="d-block fw-bold text-accent">{{ liveshow.when | date: '%H h %M' }}</span>
-      {% if liveshow.tickets %}
-        <span class="d-block"><a href="{{ liveshow.tickets }}">Billets</a></span>
-      {% endif %}
-      {% if liveshow.price %}
-        <span class="d-block text-gold">PAF : {{ liveshow.price }} €</span>
-      {% endif %}
-    </dd>
+<div class="row g-5">
+<div class="col-12 col-lg-7">
+
+<h2 class="h3 text-gold mt-5 mb-3">Prochains concerts</h2>
+{% include upcoming_shows.html detailed=true %}
+
+<h2 class="h3 text-gold mt-5 mb-3">Concerts passés</h2>
+<ul class="list-unstyled">
+  {% for show in site.data.past_liveshows %}
+  {% include show_row.html show=show %}
   {% endfor %}
-</dl>
-
-<div class="section-separator my-5"></div>
-
-<dl class="date-past">
-  {% for liveshow in site.data.past_liveshows %}
-    <dt class="mt-3">{{ liveshow.when | localize: '%d %B %Y', 'fr' }}</dt>
-    <dd>
-      <span class="fs-5">{{ liveshow.title }}</span>
-      {% if liveshow.subtitle %}
-        <span class="d-block fst-italic">{{ liveshow.subtitle }}</span>
-      {% endif %}
-      {% if liveshow.address %}
-        <span class="d-block text-muted-warm">{{ liveshow.address }}</span>
-      {% endif %}
-    </dd>
-  {% endfor %}
-</dl>
+</ul>
 
 </div>
+
+<div class="col-12 col-lg-5">
+<div class="row row-cols-2 g-3 sticky-lg-top dates-gallery">
+  {% for photo in page.photos %}
+  <div class="col">
+    <div class="photo-frame ratio ratio-3x4">
+      <img src="assets/img/live/{{ photo.name }}.jpg" srcset="assets/img/live/{{ photo.name }}-sm.jpg 300w, assets/img/live/{{ photo.name }}.jpg 600w" sizes="(min-width: 1400px) 260px, (min-width: 992px) 20vw, 45vw" width="600" height="800" class="object-fit-cover" loading="lazy" alt="{{ photo.alt }}" />
+    </div>
+  </div>
+  {% endfor %}
 </div>
+</div>
+
 </div>

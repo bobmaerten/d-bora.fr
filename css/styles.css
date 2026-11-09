@@ -12,12 +12,14 @@
     --color-gold: #c4a35a;
     --bs-font-sans-serif: "Source Sans 3", sans-serif;
     --font-display: "Bebas Neue", sans-serif;
-    --font-serif: "Libre Baskerville", Georgia, serif;
+    --color-line: rgba(232, 114, 42, 0.1);
+    /* Fixed navbar: 60px logo + Bootstrap navbar and brand paddings */
+    --navbar-height: 5.875rem;
 }
 
 /* ─── Global ─── */
 html {
-    scroll-padding-top: 72px;
+    scroll-padding-top: var(--navbar-height);
     scroll-behavior: smooth;
 }
 body {
@@ -44,7 +46,7 @@ h1, h2, h3, .display-4 {
     letter-spacing: 0.05em;
     color: var(--color-text);
 }
-.container-fluid h1 {
+.page-content h1 {
     text-align: center;
     font-size: 2.5rem;
     color: var(--color-accent);
@@ -65,7 +67,7 @@ a:hover {
     background-color: rgba(10, 10, 10, 0.8);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(232, 114, 42, 0.1);
+    border-bottom: 1px solid var(--color-line);
     transition: background-color 0.3s ease;
 }
 .navbar-custom .navbar-brand {
@@ -74,12 +76,17 @@ a:hover {
     font-size: 1.1rem;
     letter-spacing: 0.15em;
 }
+/* Set where Bootstrap resolves the link colours: on .navbar itself the dark theme would win */
+.navbar-custom .navbar-nav {
+    --bs-navbar-color: var(--color-text);
+    --bs-navbar-hover-color: var(--color-accent);
+    --bs-navbar-active-color: var(--color-accent);
+}
 .navbar-custom .nav-link {
     text-transform: uppercase;
     font-family: var(--font-display);
     font-size: 0.85rem;
     letter-spacing: 0.12em;
-    color: var(--color-text) !important;
     position: relative;
     padding-bottom: 0.4rem;
     transition: color 0.2s ease;
@@ -94,10 +101,8 @@ a:hover {
     background-color: var(--color-accent);
     transition: width 0.3s ease, left 0.3s ease;
 }
-.navbar-custom .nav-link:hover {
-    color: var(--color-accent) !important;
-}
-.navbar-custom .nav-link:hover::after {
+.navbar-custom .nav-link:hover::after,
+.navbar-custom .nav-link.active::after {
     width: 100%;
     left: 0;
 }
@@ -106,24 +111,23 @@ a:hover {
 header.masthead {
     position: relative;
     overflow: hidden;
-    min-height: 85vh;
+    min-height: 100svh;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
-    background-image: url("../assets/img/band.jpg");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
+    padding-bottom: 4rem;
+    background: var(--color-bg) url("../assets/img/band.jpg") center var(--navbar-height) / cover no-repeat;
 }
+/* Faces sit in the top quarter of the photo, just under the navbar: the text lives at the bottom, over a darker band */
 header.masthead::before {
     content: "";
     position: absolute;
     inset: 0;
     background: linear-gradient(
         to bottom,
-        rgba(10, 10, 10, 0.5) 0%,
-        rgba(10, 10, 10, 0.3) 40%,
-        rgba(10, 10, 10, 0.7) 80%,
+        rgba(10, 10, 10, 0.3) 0%,
+        rgba(10, 10, 10, 0.1) 30%,
+        rgba(10, 10, 10, 0.85) 55%,
         rgba(10, 10, 10, 1) 100%
     );
     z-index: 0;
@@ -134,7 +138,7 @@ header.masthead .masthead-content {
 }
 header.masthead .masthead-heading {
     font-family: var(--font-display);
-    font-size: clamp(3rem, 8vw, 7rem);
+    font-size: clamp(3rem, 7vw, 6rem);
     color: var(--color-text);
     letter-spacing: 0.08em;
     line-height: 1;
@@ -159,9 +163,23 @@ header.masthead .masthead-subheading {
     }
 }
 
+/* On phones a cover crop keeps one musician: show the whole photo under the navbar, text below it */
 @media (max-width: 768px) {
     header.masthead {
+        /* band-xs.jpg is 3:2, shown at full width */
+        --hero-photo-h: calc(100vw * 2 / 3);
+        min-height: auto;
+        padding-top: calc(var(--navbar-height) + var(--hero-photo-h));
+        padding-bottom: 3rem;
         background-image: url("../assets/img/band-xs.jpg");
+        background-size: 100% auto;
+    }
+    header.masthead::before {
+        background: linear-gradient(
+            to bottom,
+            transparent calc(var(--navbar-height) + var(--hero-photo-h) * 0.65),
+            var(--color-bg) calc(var(--navbar-height) + var(--hero-photo-h))
+        );
     }
 }
 
@@ -189,6 +207,14 @@ header.masthead .masthead-subheading {
 .btn-xl:active {
     transform: translateY(0);
 }
+.btn-xl-outline {
+    background-color: transparent;
+    color: var(--color-text);
+    border-color: var(--color-text);
+}
+.btn-xl-outline:hover {
+    border-color: var(--color-accent);
+}
 
 /* ─── Sections ─── */
 .section-alt {
@@ -209,31 +235,43 @@ header.masthead .masthead-subheading {
     margin: 0 auto;
 }
 
-/* ─── Intro (homepage) ─── */
-.intro-section {
-    max-width: 720px;
-    margin: 0 auto;
+/* ─── Homepage ─── */
+.masthead-kicker {
+    font-family: var(--font-display);
+    font-size: clamp(1.15rem, 2vw, 1.5rem);
+    letter-spacing: 0.2em;
+    color: var(--color-gold);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
+    animation: fadeSlideUp 0.8s ease-out both;
 }
-.intro-section .logo-ring {
-    border: 2px solid rgba(232, 114, 42, 0.2);
-    box-shadow: 0 0 40px rgba(232, 114, 42, 0.08);
-    transition: box-shadow 0.4s ease;
-}
-.intro-section .logo-ring:hover {
-    box-shadow: 0 0 60px rgba(232, 114, 42, 0.15);
-}
-.intro-section p {
-    font-family: var(--font-serif);
-    font-size: 0.95rem;
-    line-height: 1.8;
+.masthead-fact {
     color: var(--color-text);
+    animation: fadeSlideUp 0.8s 0.3s ease-out both;
 }
-.intro-section a {
-    border-bottom: 1px solid var(--color-accent);
-    padding-bottom: 1px;
+.intro-text p {
+    font-size: 1.15rem;
+    line-height: 1.7;
 }
-.intro-section a:hover {
-    border-bottom-color: var(--color-accent-hover);
+.link-cta {
+    font-family: var(--font-display);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: linear-gradient(currentColor, currentColor) no-repeat left bottom / 0 2px;
+    padding-bottom: 2px;
+    transition: background-size 0.3s ease, color 0.2s ease;
+}
+.link-cta:hover {
+    background-size: 100% 2px;
+}
+.photo-frame {
+    overflow: hidden;
+    border-radius: 0.5rem;
+}
+.photo-frame img {
+    transition: transform 0.4s ease;
+}
+.photo-frame:hover img {
+    transform: scale(1.02);
 }
 
 /* ─── Member cards (bios) ─── */
@@ -262,9 +300,7 @@ header.masthead .masthead-subheading {
     padding: 2rem 1.5rem;
 }
 .bio-text {
-    font-family: var(--font-serif);
-    font-size: 0.95rem;
-    line-height: 1.8;
+    line-height: 1.7;
     color: var(--color-text);
     opacity: 0.85;
     margin-top: 1rem;
@@ -290,26 +326,24 @@ header.masthead .masthead-subheading {
 .tribute h2 {
     color: var(--color-gold);
 }
+.tribute p {
+    max-width: 36rem;
+}
 
 /* ─── Dates ─── */
-.date-upcoming dt {
-    color: var(--color-accent);
+.date-row {
+    border-bottom: 1px solid var(--color-line);
+}
+.date-day {
+    width: 9rem;
     font-family: var(--font-display);
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     letter-spacing: 0.05em;
+    color: var(--color-accent);
 }
-.date-upcoming dd {
-    border-bottom: 1px solid rgba(232, 114, 42, 0.1);
-    padding-bottom: 1rem;
-}
-.date-past dt {
-    color: var(--color-gold);
-    font-family: var(--font-display);
-    letter-spacing: 0.04em;
-    opacity: 0.8;
-}
-.date-past dd {
-    opacity: 0.7;
+
+.dates-gallery {
+    top: calc(var(--navbar-height) + 1rem);
 }
 
 /* ─── Download cards (infos) ─── */
@@ -322,7 +356,7 @@ header.masthead .masthead-subheading {
 }
 .download-card:hover {
     border-color: var(--color-accent);
-    transform: translateY(-4px);
+    transform: translateY(-2px);
     box-shadow: 0 8px 30px rgba(232, 114, 42, 0.1);
 }
 .download-card img {
@@ -370,7 +404,7 @@ header.masthead .masthead-subheading {
 /* ─── Footer ─── */
 .site-footer {
     background-color: var(--color-bg);
-    border-top: 1px solid rgba(232, 114, 42, 0.1);
+    border-top: 1px solid var(--color-line);
 }
 .site-footer .footer-logo {
     opacity: 0.4;
@@ -385,6 +419,15 @@ header.masthead .masthead-subheading {
 .site-footer a:hover {
     color: var(--color-accent);
 }
+/* Social SVGs are black: invert them so they read on the dark footer */
+.social-links img {
+    filter: invert(1);
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+}
+.social-links a:hover img {
+    opacity: 1;
+}
 .site-footer .copyright {
     color: var(--color-text-muted);
     font-size: 0.8rem;
@@ -392,7 +435,7 @@ header.masthead .masthead-subheading {
 
 /* ─── Setlist ─── */
 .chanson-item {
-    border-color: rgba(232, 114, 42, 0.1) !important;
+    border-color: var(--color-line) !important;
     transition: background-color 0.2s ease;
 }
 .chanson-item:hover {
@@ -403,12 +446,17 @@ header.masthead .masthead-subheading {
     letter-spacing: 0.03em;
 }
 .chanson-item p {
-    font-family: var(--font-serif);
-    font-size: 0.95rem;
-    line-height: 1.8;
+    line-height: 1.6;
 }
 
 /* ─── Utilities ─── */
+/* Bootstrap ships no 3:4 ratio nor object-position helpers */
+.ratio-3x4 {
+    --bs-aspect-ratio: 133.333%;
+}
+.object-position-top {
+    object-position: center 20%;
+}
 .text-accent {
     color: var(--color-accent);
 }

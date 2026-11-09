@@ -5,3 +5,5 @@ _site
 mise.toml
 vendor
 .DS_Store
+.taste-skill/
+shots/

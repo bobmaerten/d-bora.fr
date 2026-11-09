@@ -1,48 +1,97 @@
 ---
 layout: default
 title: D-BORA, c'est du rock !
-last_modified_at: 2024-12-07
+last_modified_at: 2026-11-09
 ---
 
 <header class="masthead text-center text-white">
-    <div class="masthead-content">
-        <div class="container px-4">
-            <h1 class="masthead-heading mb-0">Quatre potes</h1>
-            <p class="masthead-subheading mb-0">
-                qui jouent du rock français
-            </p>
-            <a class="btn btn-xl rounded-pill mt-5" href="/bio.html">Découvrez-les !</a>
+    <div class="masthead-content container px-4">
+        <p class="masthead-kicker mb-3">D-BORA · Hauts-de-France</p>
+        <h1 class="masthead-heading mb-0">Quatre potes</h1>
+        <p class="masthead-subheading mb-0">qui jouent du rock français</p>
+        <p class="masthead-fact fs-5 mt-3 mb-0">
+            {{ site.data.chansons.size }} compositions originales, {{ site.data.past_liveshows.size }} concerts depuis 2021
+        </p>
+        <div class="d-flex flex-column flex-sm-row justify-content-center gap-3 mt-4">
+            <a class="btn btn-xl rounded-pill" href="media.html">Écouter les titres</a>
+            <a class="btn btn-xl btn-xl-outline rounded-pill" href="contact.html">Programmer le groupe</a>
         </div>
     </div>
 </header>
 
-<section class="pt-4 pb-5">
-    <div class="intro-section text-center px-3">
-        <div class="mb-3">
-            <img
-                class="rounded-circle logo-ring"
-                src="assets/img/logo-full@1x.jpeg"
-                srcset="assets/img/logo-full@2x.jpeg 2x"
-                width="280"
-                height="280"
-                alt="Logo D-BORA"
-            />
+<main>
+<section class="py-5 my-lg-5">
+    <div class="container px-4">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6 intro-text">
+                <h2 class="display-5 mb-4">Le groupe</h2>
+                <p>
+                    Du rock de compositions originales, sur les tumultes de l'existence
+                    et les passions déchaînées.
+                </p>
+                <p>
+                    Le nom du groupe rend hommage à sa jeune bassiste, Déborah,
+                    disparue dans un accident de la route en 2020.
+                </p>
+                <p>
+                    Fondé en 2012, véritablement actif depuis 2018, D-BORA joue sur la
+                    scène locale depuis 2021.
+                </p>
+                <a class="link-cta" href="bio.html">Lire les biographies</a>
+            </div>
+            <div class="col-lg-6">
+                <div class="photo-frame ratio ratio-4x3">
+                    <img src="assets/img/band-selfie.jpg" srcset="assets/img/band-selfie-sm.jpg 800w, assets/img/band-selfie.jpg 1600w" sizes="(min-width: 1400px) 636px, (min-width: 992px) 50vw, 100vw" width="1600" height="900" class="object-fit-cover" loading="lazy" alt="Math, Fred, JP et Bob tout sourire devant la scène" />
+                </div>
+            </div>
         </div>
-
-        <div class="section-separator my-3"></div>
-
-        <p class="fs-5">
-            Groupe de rock composant des morceaux originaux, explorant les tumultes
-            de l'existence et les passions déchaînées.
-        </p>
-        <p class="fs-5">
-            Le nom du groupe rend hommage à sa jeune bassiste, Déborah, disparue
-            trop tôt dans un accident de la route en 2020.
-        </p>
-        <p class="fs-5">
-            Fondé en 2012 mais véritablement actif depuis 2018, D-BORA est présent
-            <a href="/dates.html">sur la scène locale</a> depuis 2021 pour délivrer
-            son rock puissant et entraînant.
-        </p>
     </div>
 </section>
+
+<section class="py-5 section-alt">
+    <div class="container px-4 py-lg-5">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-5 order-lg-2">
+                <h2 class="display-5 mb-4">Sur scène</h2>
+                {% include upcoming_shows.html %}
+                <a class="link-cta" href="dates.html">Voir les {{ site.data.past_liveshows.size }} concerts passés</a>
+            </div>
+            <div class="col-lg-7">
+                <div class="photo-frame ratio ratio-16x9">
+                    <img src="assets/img/band-live.jpg" srcset="assets/img/band-live-sm.jpg 800w, assets/img/band-live.jpg 1600w" sizes="(min-width: 1400px) 750px, (min-width: 992px) 58vw, 100vw" width="1600" height="1200" class="object-fit-cover" loading="lazy" alt="D-BORA en concert dans un bar" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 my-lg-5">
+    <div class="container px-4">
+        <div class="d-flex flex-wrap align-items-baseline justify-content-between gap-3 mb-4">
+            <h2 class="display-5 mb-0">En vidéo</h2>
+            <a class="link-cta" href="media.html">Toutes les vidéos</a>
+        </div>
+        {% assign video = site.data.videos | first %}
+        <div class="ratio ratio-16x9">
+            <iframe
+                id="home-video"
+                title="{{ video.title }}"
+                loading="lazy"
+                src="https://www.youtube-nocookie.com/embed/{{ video.id }}?rel=0&iv_load_policy=3"
+                allowfullscreen
+            ></iframe>
+        </div>
+    </div>
+</section>
+</main>
+
+<script>
+    // A different video on each visit; without JS the most recent one stays
+    (() => {
+        const videos = {{ site.data.videos | jsonify }};
+        const video = videos[Math.floor(Math.random() * videos.length)];
+        const frame = document.getElementById("home-video");
+        frame.title = video.title;
+        frame.src = frame.src.replace(videos[0].id, video.id);
+    })();
+</script>

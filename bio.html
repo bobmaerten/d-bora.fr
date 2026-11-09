@@ -1,58 +1,41 @@
 ---
 layout: page
 title: D-BORA — les biographies
-last_modified_at: 2024-12-04
+last_modified_at: 2026-11-09
 ---
 
-<section id="members">
-    <div class="row row-cols-1 row-cols-md-2 g-5">
+<h1>Le groupe</h1>
+
+<section id="members" class="mt-5">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        {% for member in site.data.members %}
         <div class="col">
-            <div class="bio-card text-center">
-                <img class="rounded-circle member-photo" src="assets/img/jp.jpg" width="200" height="200" alt="Jean-Pierre" />
-                <h2 class="display-4 mt-3 mb-0">JP</h2>
-                <p class="member-role">Chant, guitare rythmique, harmonica</p>
-                <div class="bio-text text-start">
-                    {% capture my_include %}{% include jp_bio.md %}{% endcapture %}
-                    {{ my_include | markdownify }}
+            <article class="bio-card">
+                <div class="photo-frame ratio ratio-4x3 mb-4">
+                    <img src="assets/img/live/{{ member.slug }}.jpg" srcset="assets/img/live/{{ member.slug }}-sm.jpg 450w, assets/img/live/{{ member.slug }}.jpg 900w" sizes="(min-width: 1400px) 630px, (min-width: 768px) 45vw, 90vw" width="900" height="1200" class="object-fit-cover object-position-top"{% unless forloop.first %} loading="lazy"{% endunless %} alt="{{ member.name }} en concert" />
                 </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="bio-card text-center">
-                <img class="rounded-circle member-photo" src="assets/img/fred.jpg" width="200" height="200" alt="Frédéric" />
-                <h2 class="display-4 mt-3 mb-0">Fred</h2>
-                <p class="member-role">Guitare solo</p>
-                <div class="bio-text text-start">
-                    {% capture my_include %}{% include fred_bio.md %}{% endcapture %}
-                    {{ my_include | markdownify }}
+                <div class="d-flex align-items-center gap-4 mb-4">
+                    <img class="rounded-circle member-photo object-fit-cover" src="assets/img/{{ member.slug }}.jpg" width="96" height="96" loading="lazy" alt="" />
+                    <div>
+                        <h2 class="display-5 mb-0">{{ member.name }}</h2>
+                        <p class="member-role mb-0">{{ member.role }}</p>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="bio-card text-center">
-                <img class="rounded-circle member-photo" src="assets/img/math.jpg" width="200" height="200" alt="Mathieu" />
-                <h2 class="display-4 mt-3 mb-0">Math</h2>
-                <p class="member-role">Batterie et chœurs</p>
-                <div class="bio-text text-start">
-                    {% capture my_include %}{% include math_bio.md %}{% endcapture %}
-                    {{ my_include | markdownify }}
+                <div class="bio-text">
+                    {% capture bio %}{% include {{ member.slug }}_bio.md %}{% endcapture %}
+                    {{ bio | markdownify }}
                 </div>
-            </div>
+            </article>
         </div>
-        <div class="col">
-            <div class="bio-card text-center">
-                <img class="rounded-circle member-photo" src="assets/img/bob.jpg" width="200" height="200" alt="Robert" />
-                <h2 class="display-4 mt-3 mb-0">Bob</h2>
-                <p class="member-role">Guitare basse et chœurs</p>
-                <div class="bio-text text-start">
-                    {% capture my_include %}{% include bob_bio.md %}{% endcapture %}
-                    {{ my_include | markdownify }}
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
+
     <div class="tribute text-center">
-        <img class="rounded-circle member-photo" src="assets/img/deborah.jpg" width="250" height="250" alt="Déborah" />
+        <img class="rounded-circle member-photo object-fit-cover" src="assets/img/deborah.jpg" width="250" height="250" loading="lazy" alt="Déborah" />
         <h2 class="display-4 fst-italic mt-3">Déborah</h2>
+        <p class="bio-text mx-auto">
+            Notre jeune bassiste, disparue dans un accident de la route en 2020.
+            Le groupe porte son nom, et la chanson <a href="setlist.html">Deborah</a> lui est dédiée.
+        </p>
     </div>
 </section>

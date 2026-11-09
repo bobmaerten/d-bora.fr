@@ -1,0 +1,19 @@
+- slug: jp
+  name: JP
+  full_name: Jean-Pierre
+  role: Chant, guitare rythmique, harmonica
+
+- slug: fred
+  name: Fred
+  full_name: Frédéric
+  role: Guitare solo
+
+- slug: math
+  name: Math
+  full_name: Mathieu
+  role: Batterie et chœurs
+
+- slug: bob
+  name: Bob
+  full_name: Robert
+  role: Guitare basse et chœurs

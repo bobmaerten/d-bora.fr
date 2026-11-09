@@ -1,0 +1,15 @@
+<li class="date-row d-flex flex-column flex-sm-row gap-sm-4 py-3">
+    <span class="date-day flex-shrink-0">
+        {{ include.show.when | localize: '%d %b %Y', 'fr' }}
+        {% if include.detailed %}<span class="d-block small text-gold">{{ include.show.when | date: '%Hh%M' }}</span>{% endif %}
+    </span>
+    <span>
+        {{ include.show.title }}
+        {% if include.show.subtitle %}<span class="d-block fst-italic">{{ include.show.subtitle }}</span>{% endif %}
+        {% if include.show.address %}<span class="d-block small text-muted-warm">{{ include.show.address }}</span>{% endif %}
+        {% if include.detailed %}
+            {% if include.show.price %}<span class="d-block text-gold">PAF : {{ include.show.price }} €</span>{% endif %}
+            {% if include.show.tickets %}<a href="{{ include.show.tickets }}">Billets</a>{% endif %}
+        {% endif %}
+    </span>
+</li>

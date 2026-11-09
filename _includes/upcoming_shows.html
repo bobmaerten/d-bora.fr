@@ -1,0 +1,14 @@
+{% if site.data.upcoming_liveshows.size > 0 %}
+<ul class="list-unstyled mb-4">
+    {% for show in site.data.upcoming_liveshows %}
+    {% include show_row.html show=show detailed=include.detailed %}
+    {% endfor %}
+</ul>
+{% else %}
+<p class="fs-5">
+    Pause scène : on est en studio pour enregistrer nos morceaux.
+</p>
+<p class="text-muted-warm">
+    Vous organisez un concert ? <a class="link-cta" href="contact.html">Programmez le groupe</a>
+</p>
+{% endif %}

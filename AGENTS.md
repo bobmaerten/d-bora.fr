@@ -30,7 +30,7 @@ Code should speak for itself. Don't comment _what_ — comment _why_.
 
 - **Ruby**: 3.4.12+ (managed by [mise](https://mise.jdx.dev/) via `mise.toml`)
 - **Jekyll**: 4.4+ (static site generator)
-- **Frontend**: Bootstrap 5.3.8+ (CDN) / Google Fonts (Bebas Neue, Source Sans 3, Libre Baskerville)
+- **Frontend**: Bootstrap 5.3.8+ (CDN) / Google Fonts (Bebas Neue, Source Sans 3)
 - **Plugins**: jekyll-sitemap, jekyll-date-localization
 - **Hosting**: [Render.com](https://render.com) (static site, build: `bundle exec jekyll build`, publish: `_site`)
 
@@ -50,6 +50,7 @@ css/styles.css   # Custom styles (design tokens, Bootstrap overrides)
 - **ALWAYS** use `git mv` for file moves/renames
 - **NEVER** use Bootstrap 4 classes (use 5.3+ only)
 - **NEVER** use `.text-muted` (use `.text-body-secondary` or `.text-body-tertiary`)
+- **Commits:** AI help goes in an `Assisted-by: <model> [<tool>]` trailer, never `Co-Authored-By`
 
 ## Commands
 
@@ -92,8 +93,9 @@ Et si Dieu... (oct.24),JJ6Oa-SmPWs
 - **Flat selectors** — avoid deep nesting
 - **Semantic naming** — `.btn-xl` not `.big-orange-button`
 - Design tokens in `:root` — use `var(--color-accent)`, `var(--color-gold)`, `var(--color-text)`, etc.
-- Fonts: Bebas Neue (display/headings), Source Sans 3 (body), Libre Baskerville (serif accents)
-- Responsive images: `band.jpg` (desktop), `band-xs.jpg` (mobile ≤768px)
+- Fonts: Bebas Neue (display: headings, nav, buttons, dates), Source Sans 3 (all running text) — two families, no third
+- Hero photo: `band.jpg` (3:2, 2000px, faces in the top quarter) and `band-xs.jpg` (same photo, 1000px) for mobile, shown whole above the text, not cropped
+- Photos: two sizes per photo, `name.jpg` and `name-sm.jpg` (half width), served with `srcset`/`sizes`. Export with `magick in.jpg -auto-orient -resize 1600x1600\> -strip -interlace Plane -sampling-factor 4:2:0 -quality 78 out.jpg` (macOS `sips` ignores the quality setting)
 
 ## Accessibility
 

@@ -4,7 +4,7 @@ title: D-BORA — Média
 last_modified_at: 2024-11-29
 ---
 
-# Media
+# Média
 
 <div class="media-section row row-cols-1 row-cols-md-2 g-4">
   {% for sound in site.data.soundclouds %}
