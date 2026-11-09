@@ -274,6 +274,33 @@ header.masthead .masthead-subheading {
     transform: scale(1.02);
 }
 
+.video-facade {
+    display: block;
+}
+.video-play {
+    position: absolute;
+    inset: 50% auto auto 50%;
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+    background-color: var(--color-accent);
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+.video-play::after {
+    content: "";
+    position: absolute;
+    inset: 50% auto auto 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 0.75rem 0 0.75rem 1.25rem;
+    border-color: transparent transparent transparent var(--color-bg);
+}
+.video-facade:hover .video-play {
+    background-color: var(--color-accent-hover);
+    transform: translate(-50%, -50%) scale(1.08);
+}
+
 /* ─── Member cards (bios) ─── */
 .member-photo {
     border: 3px solid rgba(232, 114, 42, 0.15);
@@ -465,4 +492,17 @@ header.masthead .masthead-subheading {
 }
 .text-muted-warm {
     color: var(--color-text-muted);
+}
+
+/* ─── Reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
 }

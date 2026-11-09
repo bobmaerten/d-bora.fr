@@ -40,7 +40,7 @@ last_modified_at: 2026-11-09
                 <a class="link-cta" href="bio.html">Lire les biographies</a>
             </div>
             <div class="col-lg-6">
-                <div class="photo-frame ratio ratio-4x3">
+                <div class="photo-frame ratio ratio-16x9">
                     <img src="assets/img/band-selfie.jpg" srcset="assets/img/band-selfie-sm.jpg 800w, assets/img/band-selfie.jpg 1600w" sizes="(min-width: 1400px) 636px, (min-width: 992px) 50vw, 100vw" width="1600" height="900" class="object-fit-cover" loading="lazy" alt="Math, Fred, JP et Bob tout sourire devant la scène" />
                 </div>
             </div>
@@ -57,7 +57,7 @@ last_modified_at: 2026-11-09
                 <a class="link-cta" href="dates.html">Voir les {{ site.data.past_liveshows.size }} concerts passés</a>
             </div>
             <div class="col-lg-7">
-                <div class="photo-frame ratio ratio-16x9">
+                <div class="photo-frame ratio ratio-4x3">
                     <img src="assets/img/band-live.jpg" srcset="assets/img/band-live-sm.jpg 800w, assets/img/band-live.jpg 1600w" sizes="(min-width: 1400px) 750px, (min-width: 992px) 58vw, 100vw" width="1600" height="1200" class="object-fit-cover" loading="lazy" alt="D-BORA en concert dans un bar" />
                 </div>
             </div>
@@ -73,25 +73,44 @@ last_modified_at: 2026-11-09
         </div>
         {% assign video = site.data.videos | first %}
         <div class="ratio ratio-16x9">
-            <iframe
+            <a
                 id="home-video"
-                title="{{ video.title }}"
-                loading="lazy"
-                src="https://www.youtube-nocookie.com/embed/{{ video.id }}?rel=0&iv_load_policy=3"
-                allowfullscreen
-            ></iframe>
+                class="video-facade photo-frame"
+                href="https://www.youtube.com/watch?v={{ video.id }}"
+                aria-label="Lire la vidéo : {{ video.title }}"
+            >
+                <img src="https://i.ytimg.com/vi/{{ video.id }}/maxresdefault.jpg" class="w-100 h-100 object-fit-cover" width="1280" height="720" loading="lazy" alt="" />
+                <span class="video-play" aria-hidden="true"></span>
+            </a>
         </div>
     </div>
 </section>
 </main>
 
 <script>
-    // A different video on each visit; without JS the most recent one stays
+    // A thumbnail stands in for the YouTube player, which only loads on click.
+    // A different video on each visit; without JS the link opens the most recent one on YouTube.
     (() => {
         const videos = {{ site.data.videos | jsonify }};
         const video = videos[Math.floor(Math.random() * videos.length)];
-        const frame = document.getElementById("home-video");
-        frame.title = video.title;
-        frame.src = frame.src.replace(videos[0].id, video.id);
+        const link = document.getElementById("home-video");
+        link.href = `https://www.youtube.com/watch?v=${video.id}`;
+        link.setAttribute("aria-label", `Lire la vidéo : ${video.title}`);
+        const thumbnail = link.querySelector("img");
+        // Videos without an HD thumbnail get a 120px grey placeholder (not an error): fall back to hqdefault
+        thumbnail.addEventListener("load", () => {
+            if (thumbnail.naturalWidth < 480) thumbnail.src = `https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`;
+        }, { once: true });
+        thumbnail.src = `https://i.ytimg.com/vi/${video.id}/maxresdefault.jpg`;
+
+        link.addEventListener("click", (event) => {
+            event.preventDefault();
+            const player = document.createElement("iframe");
+            player.title = video.title;
+            player.src = `https://www.youtube-nocookie.com/embed/${video.id}?autoplay=1&rel=0&iv_load_policy=3`;
+            player.allow = "autoplay; fullscreen";
+            player.allowFullscreen = true;
+            link.replaceWith(player);
+        });
     })();
 </script>
