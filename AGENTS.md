@@ -30,7 +30,9 @@ Code should speak for itself. Don't comment _what_ — comment _why_.
 
 - **Ruby**: 3.4.12+ (managed by [mise](https://mise.jdx.dev/) via `mise.toml`)
 - **Jekyll**: 4.4+ (static site generator)
-- **Frontend**: Bootstrap 5.3.8+ (CDN) / Google Fonts (Bebas Neue, Source Sans 3)
+- **Frontend**: Bootstrap 5.3.8 and fonts (Bebas Neue, Source Sans 3), all self-hosted: no third-party request before first paint, no visitor IP sent to Google
+  - Bootstrap: `assets/bootstrap/bootstrap.min.{css,js}` — to upgrade, replace both files from `https://cdn.jsdelivr.net/npm/bootstrap@<version>/dist/` and check their SRI hashes against getbootstrap.com
+  - Fonts: latin subsets in `assets/fonts/` (woff2, Source Sans 3 is variable), declared with `@font-face` at the top of `css/styles.css`
 - **Plugins**: jekyll-sitemap, jekyll-date-localization
 - **Hosting**: [Render.com](https://render.com) (static site, build: `bundle exec jekyll build`, publish: `_site`)
 
@@ -42,6 +44,8 @@ _includes/       # Reusable fragments (bios, embeds)
 _data/           # Structured content (YAML, CSV)
 assets/img/      # Images (band photos, logos, SVGs)
 assets/file/     # Downloads (PDFs, ZIPs)
+assets/fonts/    # Self-hosted woff2 fonts
+assets/bootstrap/ # Self-hosted Bootstrap
 css/styles.css   # Custom styles (design tokens, Bootstrap overrides)
 ```
 

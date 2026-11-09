@@ -1,5 +1,29 @@
 @charset "UTF-8";
 
+/* ─── Fonts (self-hosted latin subsets: no third-party request, nothing sent to Google) ─── */
+@font-face {
+    font-family: "Bebas Neue";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("../assets/fonts/bebas-neue-latin.woff2") format("woff2");
+}
+/* Source Sans 3 files are variable: one file covers every weight */
+@font-face {
+    font-family: "Source Sans 3";
+    font-style: normal;
+    font-weight: 200 900;
+    font-display: swap;
+    src: url("../assets/fonts/source-sans-3-latin.woff2") format("woff2");
+}
+@font-face {
+    font-family: "Source Sans 3";
+    font-style: italic;
+    font-weight: 200 900;
+    font-display: swap;
+    src: url("../assets/fonts/source-sans-3-italic-latin.woff2") format("woff2");
+}
+
 /* ─── Design tokens ─── */
 :root {
     --color-bg: #0a0a0a;

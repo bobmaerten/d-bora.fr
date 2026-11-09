@@ -3,6 +3,12 @@ layout: default
 title: D-BORA, c'est du rock !
 description: "D-BORA, groupe de rock français des Hauts-de-France : des compositions originales sur la vie, l'amour et la liberté. Écoutez nos titres et programmez le groupe."
 last_modified_at: 2026-11-09
+# The hero photo is a CSS background, found late by the browser: preload the one this screen will use
+preload_images:
+  - href: /assets/img/band-xs.jpg
+    media: "(max-width: 768px)"
+  - href: /assets/img/band.jpg
+    media: "(min-width: 769px)"
 ---
 
 <header class="masthead text-center text-white">
@@ -80,7 +86,16 @@ last_modified_at: 2026-11-09
                 href="https://www.youtube.com/watch?v={{ video.id }}"
                 aria-label="Lire la vidéo : {{ video.title }}"
             >
-                <img src="https://i.ytimg.com/vi/{{ video.id }}/maxresdefault.jpg" class="w-100 h-100 object-fit-cover" width="1280" height="720" loading="lazy" alt="" />
+                <img
+                    src="https://i.ytimg.com/vi/{{ video.id }}/hqdefault.jpg"
+                    srcset="https://i.ytimg.com/vi/{{ video.id }}/hqdefault.jpg 480w, https://i.ytimg.com/vi/{{ video.id }}/maxresdefault.jpg 1280w"
+                    sizes="(min-width: 1400px) 1296px, 100vw"
+                    class="w-100 h-100 object-fit-cover"
+                    width="1280"
+                    height="720"
+                    loading="lazy"
+                    alt=""
+                />
                 <span class="video-play" aria-hidden="true"></span>
             </a>
         </div>
@@ -100,9 +115,10 @@ last_modified_at: 2026-11-09
         const thumbnail = link.querySelector("img");
         // Videos without an HD thumbnail get a 120px grey placeholder (not an error): fall back to hqdefault
         thumbnail.addEventListener("load", () => {
-            if (thumbnail.naturalWidth < 480) thumbnail.src = `https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`;
+            if (thumbnail.naturalWidth < 480) thumbnail.removeAttribute("srcset");
         }, { once: true });
-        thumbnail.src = `https://i.ytimg.com/vi/${video.id}/maxresdefault.jpg`;
+        thumbnail.src = `https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`;
+        thumbnail.srcset = `${thumbnail.src} 480w, https://i.ytimg.com/vi/${video.id}/maxresdefault.jpg 1280w`;
 
         link.addEventListener("click", (event) => {
             event.preventDefault();
