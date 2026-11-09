@@ -28,7 +28,7 @@ Code should speak for itself. Don't comment _what_ — comment _why_.
 
 ## Tech Stack
 
-- **Ruby**: 3.4.9+ (managed by [mise](https://mise.jdx.dev/) via `mise.toml`)
+- **Ruby**: 3.4.12+ (managed by [mise](https://mise.jdx.dev/) via `mise.toml`)
 - **Jekyll**: 4.4+ (static site generator)
 - **Frontend**: Bootstrap 5.3.8+ (CDN) / Google Fonts (Bebas Neue, Source Sans 3, Libre Baskerville)
 - **Plugins**: jekyll-sitemap, jekyll-date-localization
