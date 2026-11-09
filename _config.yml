@@ -35,6 +35,9 @@ plugins:
   - jekyll-date-localization
   # - jekyll-feed
 date_locale: fr
+# Show times in _data are typed as the local hour with a "Z": render them as typed,
+# the same on every machine (Render runs in UTC, a laptop does not)
+timezone: Etc/UTC
 # Jekyll 4 appends its own defaults (Gemfile, vendor/, node_modules/...) to this list
 exclude:
   - .taste-skill/

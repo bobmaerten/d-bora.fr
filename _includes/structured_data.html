@@ -1,0 +1,49 @@
+{% comment %}
+  schema.org data for search engines: the band, and its upcoming shows as events.
+  Strings go through jsonify so quotes and accents stay valid JSON.
+  startDate has no offset on purpose: show times are local hours (see timezone in _config.yml).
+{% endcomment %}
+{% assign band_id = site.url | append: "/#band" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MusicGroup",
+      "@id": {{ band_id | jsonify }},
+      "name": "D-BORA",
+      "url": {{ site.url | jsonify }},
+      "logo": {{ "/apple-touch-icon.png" | absolute_url | jsonify }},
+      "image": {{ "/assets/img/share.jpg" | absolute_url | jsonify }},
+      "description": {{ site.description | strip | jsonify }},
+      "genre": ["Rock", "Rock français"],
+      "foundingDate": "2012",
+      "foundingLocation": { "@type": "Place", "name": "Hauts-de-France" },
+      "email": {{ site.email | jsonify }},
+      "member": [
+        {% for member in site.data.members %}
+        {
+          "@type": "OrganizationRole",
+          "roleName": {{ member.role | jsonify }},
+          "member": { "@type": "Person", "name": {{ member.full_name | jsonify }} }
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ],
+      "sameAs": {{ site.data.social | map: "url" | jsonify }}
+    }{% for show in site.data.upcoming_liveshows %},
+    {
+      "@type": "MusicEvent",
+      "name": {{ show.title | jsonify }},
+      "startDate": {{ show.when | date: "%Y-%m-%dT%H:%M" | jsonify }},
+      "eventStatus": "https://schema.org/EventScheduled",
+      "location": {
+        "@type": "Place",
+        "name": {{ show.address | default: show.title | jsonify }},
+        "address": {{ show.address | default: "Hauts-de-France" | jsonify }}
+      },
+      "performer": { "@id": {{ band_id | jsonify }} }{% if show.tickets %},
+      "offers": { "@type": "Offer", "url": {{ show.tickets | jsonify }} }{% endif %}
+    }{% endfor %}
+  ]
+}
+</script>

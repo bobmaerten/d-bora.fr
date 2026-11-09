@@ -1,6 +1,7 @@
 ---
 layout: page
 title: D-BORA — les dates
+description: "Les concerts de D-BORA dans les Hauts-de-France : prochaines dates et tous les concerts passés depuis 2021."
 last_modified_at: 2026-11-09
 photos:
   - name: jp-bob-scene

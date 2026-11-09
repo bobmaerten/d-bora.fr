@@ -1,0 +1,14 @@
+- name: Facebook
+  handle: Dbora.groupe.rock
+  icon: facebook.svg
+  url: https://www.facebook.com/Dbora.groupe.rock
+
+- name: YouTube
+  handle: D-BORA c'est du rock !
+  icon: youtube.svg
+  url: https://www.youtube.com/channel/UCJvpRzqMZlLowPCS42uATdw
+
+- name: SoundCloud
+  handle: SoundCloud
+  icon: soundcloud.svg
+  url: https://soundcloud.com/d-bora-groupe-rock

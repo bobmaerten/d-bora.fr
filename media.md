@@ -1,6 +1,7 @@
 ---
 layout: page
 title: D-BORA — Média
+description: "Écoutez les titres de D-BORA sur SoundCloud et regardez nos concerts et sessions de répétition en vidéo."
 last_modified_at: 2024-11-29
 ---
 

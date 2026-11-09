@@ -1,6 +1,7 @@
 ---
 layout: page
 title: D-BORA — Contact
+description: "Contactez D-BORA pour programmer le groupe, ou suivez-nous sur Facebook, YouTube et SoundCloud."
 last_modified_at: 2024-12-07
 ---
 
@@ -9,9 +10,9 @@ last_modified_at: 2024-12-07
 <div class="text-center mt-5">
     <h2>Par mail</h2>
     <div class="mt-3">
-        <a href="mailto:d-bora.grouperock@outlook.fr" class="contact-link">
+        <a href="mailto:{{ site.email }}" class="contact-link">
             <img src="assets/img/email.svg" alt="" />
-            d-bora.grouperock@outlook.fr
+            {{ site.email }}
         </a>
     </div>
 </div>
@@ -21,17 +22,11 @@ last_modified_at: 2024-12-07
 <div class="text-center">
     <h2>Sur les réseaux</h2>
     <div class="d-flex justify-content-center flex-wrap gap-3 mt-3">
-        <a href="https://www.facebook.com/Dbora.groupe.rock" class="contact-link">
-            <img src="assets/img/facebook.svg" alt="" />
-            Dbora.groupe.rock
+        {% for network in site.data.social %}
+        <a href="{{ network.url }}" class="contact-link">
+            <img src="assets/img/{{ network.icon }}" alt="" />
+            {{ network.handle }}
         </a>
-        <a href="https://www.youtube.com/channel/UCJvpRzqMZlLowPCS42uATdw" class="contact-link">
-            <img src="assets/img/youtube.svg" alt="" />
-            D-BORA c'est du rock !
-        </a>
-        <a href="https://soundcloud.com/d-bora-groupe-rock" class="contact-link">
-            <img src="assets/img/soundcloud.svg" alt="" />
-            SoundCloud
-        </a>
+        {% endfor %}
     </div>
 </div>

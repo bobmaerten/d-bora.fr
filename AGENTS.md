@@ -67,6 +67,8 @@ Content is managed via data files in `_data/`. Follow the existing formats exact
 
 ### Concert dates (`_data/past_liveshows.yml`, `_data/upcoming_liveshows.yml`)
 
+`when` is the local (Paris) hour followed by `Z`: it is rendered as typed (`timezone: Etc/UTC` in `_config.yml`).
+
 ```yaml
 - when: 2025-11-14T19:00:00Z
   title: Live au V&B
